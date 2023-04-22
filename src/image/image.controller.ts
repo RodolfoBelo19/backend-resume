@@ -1,5 +1,6 @@
 import {
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -10,6 +11,7 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ImageService } from './image.service';
 import { Response } from 'express';
+import * as path from 'path';
 
 @Controller('images')
 export class ImageController {
@@ -25,7 +27,7 @@ export class ImageController {
   async serveImage(@Param('id') id: string, @Res() res: Response) {
     const image = await this.imageService.getImageById(id);
 
-    if (image.path) {
+    if (image && image.path) {
       res.setHeader('Content-Type', image.mimetype);
       res.sendFile(image.path);
     } else {
@@ -36,5 +38,10 @@ export class ImageController {
   @Get()
   async getAll() {
     return await this.imageService.getAll();
+  }
+
+  @Delete(':id')
+  async deleteImage(@Param('id') id: string) {
+    return await this.imageService.deleteImageById(id);
   }
 }
