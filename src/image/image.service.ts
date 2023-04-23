@@ -10,19 +10,24 @@ export class ImageService {
   ) {}
 
   async saveImage(file: Express.Multer.File): Promise<Image> {
+    console.log('Salvando imagem:', file.filename);
     const image = new this.imageModel({
       filename: file.filename,
       mimetype: file.mimetype,
       path: file.path,
     });
-
+    console.log('Imagem criada:', image);
     await image.save();
-    return image.toObject({
+    console.log('Imagem salva:', image);
+    const savedImage = image.toObject({
       versionKey: false,
       transform: (doc, ret) => {
-        delete ret._id;
+        // Mantenha o ID da imagem se necessário
+        // delete ret._id;
       },
     });
+    console.log('Imagem transformada:', savedImage);
+    return savedImage;
   }
 
   async getImageById(id: string): Promise<Image> {

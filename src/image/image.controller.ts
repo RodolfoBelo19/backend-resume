@@ -11,7 +11,6 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ImageService } from './image.service';
 import { Response } from 'express';
-import * as path from 'path';
 
 @Controller('images')
 export class ImageController {
