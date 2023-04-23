@@ -13,7 +13,7 @@ import { ConfigService } from '@nestjs/config';
     MulterModule.registerAsync({
       useFactory: (configService: ConfigService) => ({
         storage: diskStorage({
-          destination: configService.get('UPLOADS_DESTINATION'),
+          destination: configService.get('assets/images'),
           filename: (req, file, callback) => {
             const uniqueSuffix =
               Date.now() + '-' + Math.round(Math.random() * 1e9);

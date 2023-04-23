@@ -18,8 +18,9 @@ export class ImageController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('image'))
-  async uploadFile(@UploadedFile() file: Express.Multer.File) {
-    return await this.imageService.saveImage(file);
+  async uploadFile(@UploadedFile() file: Express.Multer.File): Promise<string> {
+    const savedImage = await this.imageService.saveImage(file);
+    return savedImage.id;
   }
 
   @Get(':id')

@@ -6,6 +6,9 @@ export type ImageDocument = Image & Document;
 @Schema()
 export class Image {
   @Prop()
+  id: string;
+
+  @Prop()
   filename: string;
 
   @Prop()
