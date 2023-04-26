@@ -6,16 +6,25 @@ export type ImageDocument = Image & Document;
 @Schema()
 export class Image {
   @Prop()
-  id: string;
+  filename: string;
 
   @Prop()
-  filename: string;
+  path: string;
+
+  @Prop()
+  contentType: string;
+
+  @Prop()
+  originalname: string;
 
   @Prop()
   mimetype: string;
 
   @Prop()
-  path: string;
+  size: number;
+
+  @Prop()
+  url: string;
 }
 
 export const ImageSchema = SchemaFactory.createForClass(Image);
