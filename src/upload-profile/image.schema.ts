@@ -25,6 +25,8 @@ export class Image {
 
   @Prop()
   url: string;
+
+  public save: () => Promise<ImageDocument>;
 }
 
 export const ImageSchema = SchemaFactory.createForClass(Image);
