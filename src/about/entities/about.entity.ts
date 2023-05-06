@@ -8,6 +8,7 @@ export const AboutSchema = new mongoose.Schema({
   email: { type: String, required: true },
   localization: { type: String, required: true },
   language: { type: [String], required: true },
+  userId: { type: String, required: true },
 });
 
 export interface About extends mongoose.Document {
@@ -19,4 +20,5 @@ export interface About extends mongoose.Document {
   email: string;
   localization: string;
   language: string[];
+  userId: string;
 }
