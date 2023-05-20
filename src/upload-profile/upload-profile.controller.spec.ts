@@ -52,7 +52,7 @@ describe('UploadProfileController', () => {
     it('should upload an image successfully', async () => {
       const response = await request(app.getHttpServer())
         .post('/upload-profile/image')
-        .attach('image', './test/uploads/image.jpg')
+        .attach('image', './test/image.jpg')
         .expect(HttpStatus.CREATED);
 
       expect(response.body).toEqual({
