@@ -12,6 +12,9 @@ export class Image {
   path: string;
 
   @Prop()
+  data: Buffer;
+
+  @Prop()
   contentType: string;
 
   @Prop()
