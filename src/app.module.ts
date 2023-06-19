@@ -1,18 +1,11 @@
 import { Module } from '@nestjs/common';
+import { AboutModule } from './domain/about/about.module';
+import { MongodbModule } from './shared/infra/database/mongodb.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MongooseModule } from '@nestjs/mongoose';
-import { UploadProfileModule } from './upload-profile/upload-profile.module';
-import { AboutModule } from './about/about.module';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://mongodbrd:ErfDh4b0slpeNtkk@cluster0.uboej.mongodb.net/?retryWrites=true&w=majority',
-    ),
-    UploadProfileModule,
-    AboutModule,
-  ],
+  imports: [AboutModule, MongodbModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -7,6 +7,7 @@ async function bootstrap() {
     origin: true,
     credentials: true,
   });
+
   await app.listen(3010);
 }
 bootstrap();

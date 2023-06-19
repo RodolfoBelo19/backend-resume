@@ -7,9 +7,9 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { AboutService } from './about.service';
-import { CreateAboutDto } from './dto/create-about.dto';
-import { UpdateAboutDto } from './dto/update-about.dto';
+import { AboutService } from '../services/about.service';
+import { CreateAboutDto } from '../dto/create-about.dto';
+import { UpdateAboutDto } from '../dto/update-about.dto';
 
 @Controller('about')
 export class AboutController {
