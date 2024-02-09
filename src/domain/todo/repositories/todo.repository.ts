@@ -69,6 +69,11 @@ export class TodoRepository {
       },
     }));
 
-    await this.todoModel.bulkWrite(bulkOps);
+    try {
+      await this.todoModel.bulkWrite(bulkOps);
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
 }

@@ -35,7 +35,7 @@ export class TodoController {
     return this.todoService.update(id, updateTodoDto);
   }
 
-  @Patch('/reorder')
+  @Patch()
   reorder(
     @Body() reorderData: { ids: string[]; orders: number[] },
   ): Promise<void> {
